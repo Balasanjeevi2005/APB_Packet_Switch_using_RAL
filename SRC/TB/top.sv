@@ -44,7 +44,7 @@ module top;
   initial begin
     presetn = 1'b0;
     #15
-    presetn = 1'b0;
+    presetn = 1'b1;
   end
   
 endmodule
