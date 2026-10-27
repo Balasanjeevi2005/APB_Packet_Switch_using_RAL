@@ -39,130 +39,157 @@ class top_reg_block extends uvm_reg_block;
   
   function void build;
     
+    uvm_reg::include_coverage("*",UVM_CVR_ALL);
+    
     //1
     device_id = DEVICE_ID::type_id::create("device_id");
     device_id.build();
     device_id.configure(this);
+    void'(device_id.set_coverage(UVM_CVR_FIELD_VALS));
     
     //2
     version = VERSION::type_id::create("version");
     version.build();
     version.configure(this);
+    void'(version.set_coverage(UVM_CVR_FIELD_VALS));
     
     //3
     switch_status = SWITCH_STATUS::type_id::create("switch_status");
     switch_status.build();
     switch_status.configure(this);
+    void'(switch_status.set_coverage(UVM_CVR_FIELD_VALS));
     
     //4
     port_status = PORT_STATUS::type_id::create("port_status");
     port_status.build();
     port_status.configure(this);
+    void'(port_status.set_coverage(UVM_CVR_FIELD_VALS));
     
     //5
     gen_status = GEN_STATUS::type_id::create("gen_status");
     gen_status.build();
     gen_status.configure(this);
+    void'(gen_status.set_coverage(UVM_CVR_FIELD_VALS));
     
     //6
     stat_rx = STAT_RX::type_id::create("stat_rx");
     stat_rx.build();
     stat_rx.configure(this);
+    void'(stat_rx.set_coverage(UVM_CVR_FIELD_VALS));
     
     //7
     stat_tx = STAT_TX::type_id::create("stat_tx");
     stat_tx.build();
     stat_tx.configure(this);
+    void'(stat_tx.set_coverage(UVM_CVR_FIELD_VALS));
     
     //8
     stat_drop = STAT_DROP::type_id::create("stat_drop");
     stat_drop.build();
     stat_drop.configure(this);
+    void'(stat_drop.set_coverage(UVM_CVR_FIELD_VALS));
     
     //9
     switch_ctrl = SWITCH_CTRL::type_id::create("switch_ctrl");
     switch_ctrl.build();
     switch_ctrl.configure(this);
+    void'(switch_ctrl.set_coverage(UVM_CVR_FIELD_VALS));
     
     //10
     port_enable = PORT_ENABLE::type_id::create("port_enable");
     port_enable.build();
     port_enable.configure(this);
+    void'(port_enable.set_coverage(UVM_CVR_FIELD_VALS));
     
     //11
     fwd_enable = FWD_ENABLE::type_id::create("fwd_enable");
     fwd_enable.build();
     fwd_enable.configure(this);
+    void'(fwd_enable.set_coverage(UVM_CVR_FIELD_VALS));
     
     //12
     gen_ctrl = GEN_CTRL::type_id::create("gen_ctrl");
     gen_ctrl.build();
     gen_ctrl.configure(this);
+    void'(gen_ctrl.set_coverage(UVM_CVR_FIELD_VALS));
     
     //13
     gen_pkt_cfg = GEN_PKT_CFG::type_id::create("gen_pkt_cfg");
     gen_pkt_cfg.build();
     gen_pkt_cfg.configure(this);
+    void'(gen_pkt_cfg.set_coverage(UVM_CVR_FIELD_VALS));
     
     //14
     gen_interval = GEN_INTERVAL::type_id::create("gen_interval");
     gen_interval.build();
     gen_interval.configure(this);
+    void'(gen_interval.set_coverage(UVM_CVR_FIELD_VALS));
     
     //15
     gen_count = GEN_COUNT::type_id::create("gen_count");
     gen_count.build();
     gen_count.configure(this);
+    void'(gen_count.set_coverage(UVM_CVR_FIELD_VALS));
     
     //16
     irq_status = IRQ_STATUS::type_id::create("irq_status");
     irq_status.build();
     irq_status.configure(this);
+    void'(irq_status.set_coverage(UVM_CVR_FIELD_VALS));
     
     //17
     irq_enable = IRQ_ENABLE::type_id::create("irq_enable");
     irq_enable.build();
     irq_enable.configure(this);
+    void'(irq_enable.set_coverage(UVM_CVR_FIELD_VALS));
     
     //18
     irq_force = IRQ_FORCE::type_id::create("irq_force");
     irq_force.build();
     irq_force.configure(this);
+    void'(irq_force.set_coverage(UVM_CVR_FIELD_VALS));
     
     //19
     err_status = ERR_STATUS::type_id::create("err_status");
     err_status.build();
     err_status.configure(this);
+    void'(err_status.set_coverage(UVM_CVR_FIELD_VALS));
     
     //20
     err_enable = ERR_ENABLE::type_id::create("err_enable");
     err_enable.build();
     err_enable.configure(this);
+    void'(err_enable.set_coverage(UVM_CVR_FIELD_VALS));
     
     //21
     err_inject = ERR_INJECT::type_id::create("err_inject");
     err_inject.build();
     err_inject.configure(this);
+    void'(err_inject.set_coverage(UVM_CVR_FIELD_VALS));
     
     //22
     err_count = ERR_COUNT::type_id::create("err_count");
     err_count.build();
     err_count.configure(this);
+    void'(err_count.set_coverage(UVM_CVR_FIELD_VALS));
     
     //23
     err_info = ERR_INFO::type_id::create("err_info");
     err_info.build();
     err_info.configure(this);
+    void'(err_info.set_coverage(UVM_CVR_FIELD_VALS));
     
     //24
     lock = LOCK::type_id::create("lock");
     lock.build();
     lock.configure(this);
+    void'(lock.set_coverage(UVM_CVR_FIELD_VALS));
     
     //25
     soft_reset = SOFT_RESET::type_id::create("soft_reset");
     soft_reset.build();
     soft_reset.configure(this);
+    void'(soft_reset.set_coverage(UVM_CVR_FIELD_VALS));
    
     
     default_map=create_map("default_map",32'h0000_0000,4,UVM_LITTLE_ENDIAN);
