@@ -15,11 +15,10 @@ class top_adapter extends uvm_reg_adapter;
     
     tr.pwrite  = (rw.kind == UVM_WRITE);
     tr.paddr   = rw.addr;
-    
-    if (rw.kind == UVM_WRITE)
+    tr.pslverr = rw.status;
+    if(tr.pwrite)
       tr.pwdata = rw.data;
     return tr;
-    
   endfunction
 
   //////bus2reg
@@ -36,7 +35,7 @@ class top_adapter extends uvm_reg_adapter;
     rw.data    = (tr.pwrite) ? tr.pwdata : tr.prdata;
     rw.addr    = tr.paddr;
     rw.status = tr.pslverr ? UVM_NOT_OK : UVM_IS_OK;
-    
+    $display("rw.data=%0h",rw.data);
   endfunction
 
 endclass
