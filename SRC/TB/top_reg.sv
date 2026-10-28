@@ -45,11 +45,13 @@ class DEVICE_ID extends uvm_reg;
                                bit is_read,
                                uvm_reg_map map);
     cg_1_DEVICE_ID.sample();
+    $display("inside device_id sample function");
   endfunction
   
   virtual function void sample_values();
     super.sample_values();
     cg_1_DEVICE_ID.sample();
+    $display("inside device_id sample_values function");
   endfunction
   
 endclass
@@ -530,7 +532,7 @@ class SWITCH_CTRL extends uvm_reg;
     }
     coverpoint IRQ_GLOBAL_EN.value
     {
-      bins irq_global_en = {1'd0};
+      bins irq_global_en = {1'd1};
       bins irq_global_en_rst = {1'd0};
     }
     coverpoint RESERVED_1.value
@@ -650,11 +652,15 @@ class PORT_ENABLE extends uvm_reg;
                                bit is_read,
                                uvm_reg_map map);
     cg_10_PORT_ENABLE.sample();
+    
+    $display("inside port_enable sample function");
   endfunction
   
   virtual function void sample_values();
     super.sample_values();
     cg_10_PORT_ENABLE.sample();
+    
+    $display("inside port_enable sample_values function");
   endfunction
   
 endclass
@@ -825,7 +831,7 @@ class GEN_PKT_CFG extends uvm_reg;
     }
     coverpoint SEED.value[7:0]
     {
-      bins seed  = {[8'h00:8'h03],[8'h05:8'hff]};
+      bins seed  = {[8'h01:8'hff]};
       bins seed_rst = {8'h00};
     }
     coverpoint LENGTH.value[7:0]
