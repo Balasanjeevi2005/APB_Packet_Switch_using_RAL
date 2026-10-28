@@ -34,7 +34,7 @@ class top_reg_block extends uvm_reg_block;
   
   
   function new(string name = "top_reg_block");
-    super.new(name,build_coverage(UVM_NO_COVERAGE));
+    super.new(name,build_coverage(UVM_CVR_FIELD_VALS));
   endfunction
   
   function void build;
