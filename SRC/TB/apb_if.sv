@@ -23,6 +23,9 @@ interface apb_if(input logic pclk,presetn);
     output pwdata;
     
     input pready;
+    input prdata;
+    input pslverr;
+    input irq;
     
   endclocking
   
