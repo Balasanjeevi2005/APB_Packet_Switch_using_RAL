@@ -43,6 +43,8 @@ class test_1 extends test;
       r1.regblock_inst=e_h.regblock_inst;
       r1.start(e_h.agnt_h.seq_h);
     end
+    $display("\n========== FUNCTIONAL COVERAGE REPORT =========="); 
+    $display("Coverage: %0.2f%%", $get_coverage());
     phase.drop_objection(this);
     phase.phase_done.set_drain_time(this,200);
   endtask
