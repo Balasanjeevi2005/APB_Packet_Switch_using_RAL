@@ -254,7 +254,28 @@
     regblock_inst.soft_reset.read(status,r_data);
     `uvm_info("|wo_reg_25|soft_reset",$sformatf("Read Rx from DUT -> r_data : %0h | status : %0s",r_data,status),UVM_NONE);
     
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    bit[`DATA_W-1:0]w_data;
     
+    //unlock configuration
+    regblock_inst.lock.write(status, 32'hA5A5_C3C3);
+    //enable all four ports
+    regblock_inst.port_enable.write(status, 32'h0000_000F);
+    //allow all destinations
+    regblock_inst.fwd_enable.write(status, 32'h0000_000F);
+    //enable switch & global interrupt
+    regblock_inst.switch_ctrl.write(status, 32'h0000_0009);
+    //seed(10),length(4),source(0),destination(1)
+    regblock_inst.gen_pkt_cfg.write(status, 32'h0010_0401);
+    //2_cycle inter packet gap
+    regblock_inst.gen_interval.write(status, 32'h0000_0002);
+    //generate four packets
+    regblock_inst.gen_count.write(status, 32'h0000_0004);
+    //enable gen_done & start_ack interrupts
+    regblock_inst.irq_enable.write(status, 32'h0000_0041);
+    //set enbale & pulse start
+    regblock_inst.gen_ctrl.write(status, 32'h0000_0003);
 
     
     
