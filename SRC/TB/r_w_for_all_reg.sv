@@ -110,16 +110,16 @@
     `uvm_info("|wo_reg_18|device_id",$sformatf("write Tx to DUT -> Desired_value : %0h | Mirror_value : %0h | w_data : %0h | status : %0s",des,mir,w_data,status),UVM_NONE);
 
     // w1c_reg_4
-    regblock_inst.error_status.write(status,w_data);
-    des=regblock_inst.error_status.get();
-    mir=regblock_inst.error_status.get_mirrored_value();
-    `uvm_info("|w1c_reg_19|error_status",$sformatf("write Tx to DUT -> Desired_value : %0h | Mirror_value : %0h | w_data : %0h | status : %0s",des,mir,w_data,status),UVM_NONE);
+    regblock_inst.err_status.write(status,w_data);
+    des=regblock_inst.err_status.get();
+    mir=regblock_inst.err_status.get_mirrored_value();
+    `uvm_info("|w1c_reg_19|err_status",$sformatf("write Tx to DUT -> Desired_value : %0h | Mirror_value : %0h | w_data : %0h | status : %0s",des,mir,w_data,status),UVM_NONE);
 
     //rw_reg_7
-    regblock_inst.error_enable.write(status,w_data);
-    des=regblock_inst.error_enable.get();
-    mir=regblock_inst.error_enable.get_mirrored_value();
-    `uvm_info("|rw_reg_20|error_enable",$sformatf("write Tx to DUT -> Desired_value : %0h | Mirror_value : %0h | w_data : %0h | status : %0s",des,mir,w_data,status),UVM_NONE);
+    regblock_inst.err_enable.write(status,w_data);
+    des=regblock_inst.err_enable.get();
+    mir=regblock_inst.err_enable.get_mirrored_value();
+    `uvm_info("|rw_reg_20|err_enable",$sformatf("write Tx to DUT -> Desired_value : %0h | Mirror_value : %0h | w_data : %0h | status : %0s",des,mir,w_data,status),UVM_NONE);
 
     //wo_reg_2
     regblock_inst.err_inject.write(status,w_data);
@@ -227,12 +227,12 @@
     `uvm_info("|wo_reg_18|irq_force",$sformatf("Read Rx from DUT -> r_data : %0h | status : %0s",r_data,status),UVM_NONE);
 
     // w1c_reg_4
-    regblock_inst.error_status.read(status,r_data);
-    `uvm_info("|w1c_reg_19|error_status",$sformatf("Read Rx from DUT -> r_data : %0h | status : %0s",r_data,status),UVM_NONE);
+    regblock_inst.err_status.read(status,r_data);
+    `uvm_info("|w1c_reg_19|err_status",$sformatf("Read Rx from DUT -> r_data : %0h | status : %0s",r_data,status),UVM_NONE);
     
     //rw_reg_7
-    regblock_inst.error_enable.read(status,r_data);
-    `uvm_info("|rw_reg_20|error_enabl",$sformatf("Read Rx from DUT -> r_data : %0h | status : %0s",r_data,status),UVM_NONE);
+    regblock_inst.err_enable.read(status,r_data);
+    `uvm_info("|rw_reg_20|err_enable",$sformatf("Read Rx from DUT -> r_data : %0h | status : %0s",r_data,status),UVM_NONE);
 
     //wo_reg_2
     regblock_inst.err_inject.read(status,r_data);
