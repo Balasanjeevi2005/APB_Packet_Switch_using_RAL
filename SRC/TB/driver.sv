@@ -44,9 +44,11 @@ class driver extends uvm_driver#(transaction);
     while(!vif.drv_cb.pready)begin
       @(vif.drv_cb);
     end
-    tr.prdata  = vif.drv_cb.prdata;
-    tr.pslverr = vif.drv_cb.pslverr;
-    tr.irq 	   = vif.drv_cb.irq;
+    tr.prdata  <= vif.drv_cb.prdata;
+    tr.pslverr <= vif.drv_cb.pslverr;
+    tr.irq 	   <= vif.drv_cb.irq;
+
+    @(vif.drv_cb);
     
   endtask
   
