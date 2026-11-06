@@ -1,5 +1,5 @@
 //write
-    
+
     //ro_reg_1
     regblock_inst.device_id.write(status,w_data);
     des=regblock_inst.device_id.get();
@@ -277,6 +277,8 @@
     //set enbale & pulse start
     regblock_inst.gen_ctrl.write(status, 32'h0000_0003);
 
+    rst_data = regblock_inst.device_id.get_reset();
+    `uvm_info("|ro_reg_1|device_id",$sformatf("dafault reset_value : %0h ",rst_data),UVM_NONE);
     
     
    
